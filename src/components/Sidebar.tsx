@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onPageChange }) => {
             <span className="text-white font-bold text-sm">F</span>
           </div>
           <div>
-            <h1 className="text-white font-semibold text-lg">FUSION SMART</h1>
+            <h1 className="text-white font-semibold text-lg">면접원 관리</h1>
             <span className="text-orange-400 text-xs">BETA</span>
           </div>
         </div>

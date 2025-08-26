@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, LabelList } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, LabelList, Cell } from "recharts";
 import { motion } from "framer-motion";
 import { ArrowDownWideNarrow, ArrowUpWideNarrow, Download, Filter } from "lucide-react";
 
@@ -154,7 +154,12 @@ const SelectItem: React.FC<{ value: string; children: React.ReactNode }> = ({ va
   </option>
 );
 
-const ChartPanel: React.FC<{ title: React.ReactNode; data: Array<{ name: string; value: number; team?: string }> }> = ({ title, data }) => (
+const ChartPanel: React.FC<{ 
+  title: React.ReactNode; 
+  data: Array<{ name: string; value: number; team?: string }>; 
+  highlightCount?: number;
+  highlightColor?: string;
+}> = ({ title, data, highlightCount = 0, highlightColor = '#ef4444' }) => (
   <Card className="text-slate-100">
     <CardContent>
       <div className="flex items-center justify-between mb-2">
@@ -168,6 +173,9 @@ const ChartPanel: React.FC<{ title: React.ReactNode; data: Array<{ name: string;
             <YAxis type="category" dataKey="name" width={90} tick={{ fill: "#cbd5e1", fontSize: 12 }} />
             <Tooltip formatter={(v: number) => v.toLocaleString()} labelStyle={{ color: "#e2e8f0" }} contentStyle={{ background: "#0b1220", border: "1px solid #1f2937" }} />
             <Bar dataKey="value" radius={[8, 8, 8, 8]}>
+              {data.map((_, idx) => (
+                <Cell key={`cell-${idx}`} fill={idx < highlightCount ? highlightColor : '#475569'} />
+              ))}
               <LabelList dataKey="value" position="right" formatter={(v: number) => v.toLocaleString()} style={{ fill: "#e2e8f0", fontSize: 12 }} />
             </Bar>
           </BarChart>
@@ -281,8 +289,17 @@ const InterviewerRankPage: React.FC = () => {
 
         {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <ChartPanel title={<span className="inline-flex items-center gap-2"><ArrowUpWideNarrow className="h-4 w-4"/>Top 10</span>} data={chartTop} />
-          <ChartPanel title={<span className="inline-flex items-center gap-2"><ArrowDownWideNarrow className="h-4 w-4"/>Bottom 10</span>} data={chartBottom} />
+          <ChartPanel 
+            title={<span className="inline-flex items-center gap-2"><ArrowUpWideNarrow className="h-4 w-4"/>Top 10</span>} 
+            data={chartTop} 
+            highlightCount={3}
+            highlightColor="#3b82f6"
+          />
+          <ChartPanel 
+            title={<span className="inline-flex items-center gap-2"><ArrowDownWideNarrow className="h-4 w-4"/>Bottom 10</span>} 
+            data={chartBottom} 
+            highlightCount={3}
+          />
         </div>
 
         {/* Ranked Lists */}

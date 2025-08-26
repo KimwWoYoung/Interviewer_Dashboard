@@ -48,14 +48,14 @@ const RANK_MAP = computeRanks(INTERVIEWER_MAP);
 
 // Demo project data
 const DEMO_PROJECTS = [
-  { id: 1, name: "백엔드 API 개발", created: "2025-01-01", members: ["김하늘", "박지우"], progress: 87, status: "Success" },
-  { id: 2, name: "프론트엔드 UI 개선", created: "2025-02-15", members: ["이서준", "최민서"], progress: 47, status: "In Progress" },
-  { id: 3, name: "데이터 파이프라인 구축", created: "2025-03-03", members: ["홍가람"], progress: 100, status: "Success" },
-  { id: 4, name: "리서치 자동화", created: "2025-03-10", members: ["정윤아", "문태양"], progress: 35, status: "Delayed" },
-  { id: 5, name: "대시보드 개발", created: "2025-04-01", members: ["오세림", "한유진"], progress: 60, status: "In Progress" },
-  { id: 6, name: "모바일 앱 개발", created: "2025-04-15", members: ["신도윤", "배지민"], progress: 25, status: "In Progress" },
-  { id: 7, name: "보안 시스템 구축", created: "2025-04-20", members: ["강서우", "임다은"], progress: 95, status: "Success" },
-  { id: 8, name: "AI 모델 학습", created: "2025-05-01", members: ["장하림", "윤태호"], progress: 15, status: "Delayed" },
+  { id: 1, name: "주한 외국인 관광시장 실태조사", created: "2025-01-01", members: ["김하늘", "박지우"], progress: 87, status: "Success" },
+  { id: 2, name: "경남 디자인주도 제조혁신 지원 사업 성과분석 및 만족도 전수조사 용역", created: "2025-02-15", members: ["이서준", "최민서"], progress: 47, status: "In Progress" },
+  { id: 3, name: "국내거주동포 실태 조사", created: "2025-03-03", members: ["홍가람"], progress: 100, status: "Success" },
+  { id: 4, name: "서울시 디자인 수요조사", created: "2025-03-10", members: ["정윤아", "문태양"], progress: 35, status: "Delayed" },
+  { id: 5, name: "신흥시장 항공산업 분석 및 방한여객 조사 용역", created: "2025-04-01", members: ["오세림", "한유진"], progress: 60, status: "In Progress" },
+  { id: 6, name: "2025년 디자인산업통계 조사 용역", created: "2025-04-15", members: ["신도윤", "배지민"], progress: 25, status: "In Progress" },
+  { id: 7, name: "2025 관광안내소 서비스 모니터링 평가", created: "2025-04-20", members: ["강서우", "임다은"], progress: 95, status: "Success" },
+  { id: 8, name: "2025년도 국가이미지 조사", created: "2025-05-01", members: ["장하림", "윤태호"], progress: 15, status: "Delayed" },
 ];
 
 type Project = typeof DEMO_PROJECTS[number];
